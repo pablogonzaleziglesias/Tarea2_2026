@@ -54,3 +54,238 @@ select {
 textarea {
   resize: vertical;
 }
+
+#cumple,
+#Terry,
+#Lanzarote {
+  display: none;
+}
+
+#cumple:target,
+#Terry:target,
+#Lanzarote:target {
+  display: block;
+  animation: mostrar 1s ease-in-out;
+}
+
+/* esto lo busque en la ia, que ni flores */
+main:has(#cumple:target),
+main:has(#Terry:target),
+main:has(#Lanzarote:target) {
+  #galeriainicial {
+    display: none;
+  }
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: darkseagreen;
+  width: 100vw;
+}
+
+header {
+  background-color: chocolate;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 3rem;
+  padding: 0.5rem 0;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.menu-btn {
+  background-color: grey;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 1s ease;
+}
+
+.menu-btn:hover {
+  background-color: cadetblue;
+}
+
+main {
+  max-width: 80vw;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.Seleccion {
+  font-style: italic;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.menu-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.galeria-inicial {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.galeria-inicial div {
+  margin: 10px;
+  text-align: center;
+}
+
+.galeria-inicial-item {
+  margin: 10px;
+  text-align: center;
+}
+.galeria-inicial-item img {
+  border-radius: 20px;
+  width: 200px;
+  height: 200px;
+}
+
+.galeria-inicial-item img:hover {
+  animation-name: rotar;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+}
+
+.Galeria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(200px, auto);
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.Galeria-item {
+  flex: 1 1 calc(33.333% - 20px);
+  box-sizing: border-box;
+  height: 100%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.Galeria-item img {
+  width: 400px;
+  height: auto;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.Galeria-item .text {
+  /*background-color: white;*/
+  color: black;
+  margin-top: 10px;
+  text-align: left;
+  display: none;
+}
+
+.text.t2 {
+  /*background-color: white;*/
+  margin-left: 120px;
+}
+
+.Galeria-item:hover {
+  transform: scale(1.05);
+  /*object-fit: contain;*/
+}
+
+.Galeria-item:hover .text {
+  display: block;
+}
+.arriba {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.marquesina {
+  background: yellow;
+  text-align: center;
+  margin: 20px 0 20px;
+  animation-name: trasladar;
+  border: 1px solid black;
+  border-radius: 8px;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes trasladar {
+  0% {
+    transform: translateX(-50vw);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+@keyframes rotar {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes mostrar {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+footer {
+  margin-top: 2rem;
+  border-top: 10px solid chocolate;
+  /*background: chocolate;*/
+  color: blue;
+  font-size: 1rem;
+  font-family: "Courier New", Courier, monospace;
+  font-style: italic;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .Galeria {
+    grid-template-columns: 1fr;
+  }
+  #galeriainicial {
+    display: none;
+  }
+  .Galeria-item img {
+    width: 100%;
+    max-height: 200px;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+  }
+
+  .marquesina {
+    animation: none;
+  }
+}
